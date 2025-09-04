@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-primary: #164C3A; /* forest green */
+  --brand-accent: #C0D9CD;
+}
+
+html, body {
+  scroll-behavior: smooth;
+}
