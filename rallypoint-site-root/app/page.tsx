@@ -101,7 +101,7 @@ export default function Page() {
               <a href="#services"><Button variant="outline" className="rounded-2xl px-6">Explore services <ArrowRight className="ml-2 h-4 w-4 inline" /></Button></a>
             </div>
             <div className="mt-6 grid grid-cols-3 gap-6">
-              <Stat value="IOP/OP" label="Levels of care" />
+              <Stat value="Individual Therapy" label="Levels of care" />
               <Stat value="HIPAA" label="Secure telehealth" />
               <Stat value="CA" label="Statewide care" />
             </div>
