@@ -67,7 +67,7 @@ export default function Page() {
             </div>
           </div>
           <nav className="hidden md:flex items-center gap-6">
-            <NavLink href="#military">Services</NavLink>
+            <NavLink href="#military">Military</NavLink>
             <NavLink href="#first-responders">First Responders</NavLink>
             <NavLink href="#telehealth">Telehealth</NavLink>
             <NavLink href="#insurance">Insurance</NavLink>
@@ -118,11 +118,11 @@ export default function Page() {
         </div>
       </header>
 
-      {/* Services */}
-      <Section id="services">
+      {/* Military */}
+      <Section id="military">
         <div className="max-w-6xl mx-auto px-4">
           <div className="max-w-2xl">
-            <h2 className="text-2xl md:text-3xl font-semibold">Services</h2>
+            <h2 className="text-2xl md:text-3xl font-semibold">Military</h2>
             <p className="text-slate-600 mt-2">Personalized, culturally responsive care. We meet you at the rally point and move together toward what matters.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 mt-8">
@@ -330,7 +330,7 @@ export default function Page() {
           <div>
             <div className="font-semibold mb-2">Explore</div>
             <ul className="space-y-2">
-              <li><a className="hover:underline" href="#services">Services</a></li>
+              <li><a className="hover:underline" href="#military">Military</a></li>
               <li><a className="hover:underline" href="#first-responders">First Responders</a></li>
               <li><a className="hover:underline" href="#telehealth">Telehealth</a></li>
               <li><a className="hover:underline" href="#insurance">Insurance</a></li>
