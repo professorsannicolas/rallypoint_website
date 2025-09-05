@@ -6,6 +6,7 @@
   --brand-primary: #164C3A; /* forest green */
   --brand-accent: #C0D9CD;
   --brand-bg: #FFFBEE; /* clean light background */
+  
 }
 
 html, body { scroll-behavior: smooth; background: var(--brand-bg); }
