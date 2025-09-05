@@ -8,6 +8,4 @@
   --brand-bg: #FFFBEE; /* clean light background */
 }
 
-html, body {
-  scroll-behavior: smooth;
-}
+html, body { scroll-behavior: smooth; background: var(--brand-bg); }
