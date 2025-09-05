@@ -1,19 +1,17 @@
+"use client";
+
 import React from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Shield, Users, Heart, Stethoscope, MessageSquare, Clock, ArrowRight, CheckCircle, Video, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Phone, Mail, MapPin, Shield, Users, Heart, Stethoscope, MessageSquare, Clock, ArrowRight, CheckCircle, Video } from "lucide-react";
+import { Button } from "../components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
+import { Input } from "../components/ui/input";
+import { Textarea } from "../components/ui/textarea";
 
-// Brand constants
 const BRAND = {
   name: "Rally Point Family & Wellness",
-  primary: "#164C3A", // forest green
-  primaryLight: "#1E5E49",
+  primary: "#164C3A",
   accent: "#C0D9CD",
-  dark: "#0C1F17",
-  bg: "#F4F8F6", // clean, light background to match logo palette
 };
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
@@ -49,38 +47,28 @@ const Stat = ({ value, label }: { value: string; label: string }) => (
   </div>
 );
 
-const Pill = ({ children }: { children: React.ReactNode }) => (
-  <div className="px-3 py-2 rounded-xl bg-white border flex items-center gap-2 text-sm">
-    <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: BRAND.primary }} />
-    {children}
-  </div>
-);
-
 const ListItem = ({ children }: { children: React.ReactNode }) => (
   <li className="flex items-start gap-2"><CheckCircle className="h-5 w-5 mt-0.5" style={{ color: BRAND.primary }} /> <span className="text-slate-700">{children}</span></li>
 );
 
-export default function Site() {
+export default function Page() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: BRAND.bg, color: "#0f172a" }}>
+    <div className="min-h-screen bg-white text-slate-900">
       {/* Top Bar */}
       <div className="w-full border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/50 sticky top-0 z-40">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            {/* Replace /logo-rp.svg with your exported compass RP logo placed in /public */}
-            <img src="/logo-rp.svg" alt="Rally Point logo" className="h-10 w-10 rounded-full border" style={{ borderColor: BRAND.primary }} />
+            <div className="h-10 w-10 rounded-full flex items-center justify-center border" style={{ borderColor: BRAND.primary }}>
+              <span className="font-semibold" style={{ color: BRAND.primary }}>RP</span>
+            </div>
             <div className="leading-tight">
               <div className="font-semibold">{BRAND.name}</div>
               <div className="text-xs text-slate-500">Client-centered mental health care</div>
             </div>
           </div>
           <nav className="hidden md:flex items-center gap-6">
-            <NavLink href="#services">Services</NavLink>
-            <NavLink href="#military">Military</NavLink>
-            <NavLink href="#police">Police</NavLink>
-            <NavLink href="#fire">Fire</NavLink>
-            <NavLink href="#ems">EMS</NavLink>
-            <NavLink href="#life-coaching">Life Coaching</NavLink>
+            <NavLink href="#military">Services</NavLink>
+            <NavLink href="#first-responders">First Responders</NavLink>
             <NavLink href="#telehealth">Telehealth</NavLink>
             <NavLink href="#insurance">Insurance</NavLink>
             <NavLink href="#team">Team</NavLink>
@@ -91,7 +79,7 @@ export default function Site() {
               <Phone className="h-4 w-4" /> (555) 555-5555
             </a>
             <a href="#contact">
-              <Button className="rounded-2xl" style={{ backgroundColor: BRAND.primary }}>Book a consult</Button>
+              <Button className="rounded-2xl">Book a consult</Button>
             </a>
           </div>
         </div>
@@ -109,18 +97,17 @@ export default function Site() {
               Evidence-based therapy for individuals, couples, and families—with a special commitment to first responders, service members, and their loved ones. In-person and secure telehealth across California.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href="#contact"><Button className="rounded-2xl px-6" style={{ backgroundColor: BRAND.primary }}>Request an appointment</Button></a>
-              <a href="#services"><Button variant="outline" className="rounded-2xl px-6 border" style={{ borderColor: BRAND.primary, color: BRAND.primary }}>Explore services <ArrowRight className="ml-2 h-4 w-4" /></Button></a>
+              <a href="#contact"><Button className="rounded-2xl px-6">Request an appointment</Button></a>
+              <a href="#services"><Button variant="outline" className="rounded-2xl px-6">Explore services <ArrowRight className="ml-2 h-4 w-4 inline" /></Button></a>
             </div>
             <div className="mt-6 grid grid-cols-3 gap-6">
-              <Stat value="Individual Therapy" label="Primary service" />
+              <Stat value="Individual Therapy" label="Levels of care" />
               <Stat value="HIPAA" label="Secure telehealth" />
               <Stat value="CA" label="Statewide care" />
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}>
             <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-sm border" style={{ borderColor: BRAND.accent }}>
-              {/* Replace with a real photo or illustration */}
               <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop" alt="Calm trail through forest" className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               <div className="absolute bottom-4 left-4 text-white">
@@ -141,7 +128,7 @@ export default function Site() {
           <div className="grid md:grid-cols-3 gap-6 mt-8">
             <Feature icon={Stethoscope} title="Individual Therapy" desc="Anxiety, depression, trauma/PTSD, stress, and life transitions. Evidence-based modalities tailored to your goals." />
             <Feature icon={Users} title="Couples & Family" desc="Strengthen communication, rebuild trust, and navigate change with structured, supportive sessions." />
-            <Feature icon={MessageSquare} title="Group Therapy" desc="Skills-focused and process groups that balance structure with connection." />
+            <Feature icon={MessageSquare} title="Group Therapy" desc="Skills-focused and process groups that balance structure with connection. IOP and outpatient options." />
           </div>
           <div className="grid md:grid-cols-3 gap-6 mt-6">
             <Feature icon={Heart} title="Trauma-Informed Care" desc="EMDR-informed, CBT/DBT, and compassion-focused approaches delivered with steadiness and care." />
@@ -151,106 +138,42 @@ export default function Site() {
         </div>
       </Section>
 
-      {/* Audience Sections */}
-      <Section id="military" className="bg-[rgba(22,76,58,0.03)]">
+      {/* First Responders */}
+      <Section id="first-responders" className="bg-[rgba(22,76,58,0.03)]">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <h2 className="text-2xl md:text-3xl font-semibold">Military & Families</h2>
-            <p className="text-slate-600 mt-3">Mission-informed care for active duty, veterans, and dependents. Confidential, paced, and practical.</p>
+            <h2 className="text-2xl md:text-3xl font-semibold">Dedicated support for first responders & military families</h2>
+            <p className="text-slate-600 mt-3">We understand high-tempo work, critical incident stress, and the culture of service. Care is practical, confidential, and mission-informed.</p>
             <ul className="mt-5 space-y-2">
-              <ListItem>PTSD, moral injury, and transition stress</ListItem>
-              <ListItem>PCS/relocation, reintegration, and family support</ListItem>
-              <ListItem>Coordination with command when requested</ListItem>
-            </ul>
-          </div>
-          <div className="grid grid-cols-2 gap-3">
-            {['Transition readiness','Operational stress','Reintegration','Sleep disruption'].map((t)=> (<Pill key={t}>{t}</Pill>))}
-          </div>
-        </div>
-      </Section>
-
-      <Section id="police">
-        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-semibold">Law Enforcement</h2>
-            <p className="text-slate-600 mt-3">Culturally aware support for patrol, investigations, dispatch, and leadership.</p>
-            <ul className="mt-5 space-y-2">
-              <ListItem>Critical incident response & follow-up</ListItem>
-              <ListItem>Stress, anger, and family strain</ListItem>
-              <ListItem>Confidential telehealth with shift-aware scheduling</ListItem>
-            </ul>
-          </div>
-          <div className="grid grid-cols-2 gap-3">
-            {['Critical incidents','Hypervigilance','Family dynamics','Burnout'].map((t)=> (<Pill key={t}>{t}</Pill>))}
-          </div>
-        </div>
-      </Section>
-
-      <Section id="fire" className="bg-[rgba(22,76,58,0.03)]">
-        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-semibold">Fire Service</h2>
-            <p className="text-slate-600 mt-3">Support tuned to station life, deployments, and cumulative stress.</p>
-            <ul className="mt-5 space-y-2">
-              <ListItem>Exposure-related stress and sleep disruption</ListItem>
-              <ListItem>Team cohesion and family balance</ListItem>
-              <ListItem>Return-to-duty readiness</ListItem>
-            </ul>
-          </div>
-          <div className="grid grid-cols-2 gap-3">
-            {['Station tempo','Sleep & recovery','Peer support','Resilience'].map((t)=> (<Pill key={t}>{t}</Pill>))}
-          </div>
-        </div>
-      </Section>
-
-      <Section id="ems">
-        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-semibold">EMS & Dispatch</h2>
-            <p className="text-slate-600 mt-3">Care for medics, EMTs, and dispatchers working high-frequency calls.</p>
-            <ul className="mt-5 space-y-2">
-              <ListItem>Acute stress and cumulative burnout</ListItem>
-              <ListItem>Grounding skills and recovery planning</ListItem>
-              <ListItem>Discreet telehealth options</ListItem>
-            </ul>
-          </div>
-          <div className="grid grid-cols-2 gap-3">
-            {['High tempo','Grounding skills','Recovery plan','Confidential access'].map((t)=> (<Pill key={t}>{t}</Pill>))}
-          </div>
-        </div>
-      </Section>
-
-      {/* Life Coaching */}
-      <Section id="life-coaching" className="bg-[rgba(22,76,58,0.03)]">
-        <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-semibold">Life Coaching</h2>
-            <p className="text-slate-600 mt-3">Future-focused, non-clinical coaching to build clarity, habits, and momentum. Coaching is not psychotherapy and does not diagnose or treat mental health conditions.</p>
-            <ul className="mt-5 space-y-2">
-              <ListItem>Goal setting & accountability</ListItem>
-              <ListItem>Leadership & career development</ListItem>
-              <ListItem>Resilience & performance routines</ListItem>
+              <ListItem>PTSD and moral injury support with pacing that respects readiness.</ListItem>
+              <ListItem>Shift-work aware scheduling; discreet telehealth when needed.</ListItem>
+              <ListItem>Family-inclusive care to steady the whole system.</ListItem>
             </ul>
             <div className="mt-6">
-              <a href="#contact"><Button className="rounded-2xl" style={{ backgroundColor: BRAND.primary }}>Inquire about coaching</Button></a>
+              <a href="#contact"><Button className="rounded-2xl">Get matched with a clinician</Button></a>
             </div>
           </div>
           <div>
             <Card className="rounded-3xl border shadow-sm">
               <CardHeader>
-                <CardTitle className="text-lg">Common coaching focuses</CardTitle>
+                <CardTitle className="text-lg">Common concerns we treat</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-2 gap-3 text-sm">
                   {[
-                    "Habit systems",
-                    "Time blocking",
-                    "Communication",
-                    "Career clarity",
-                    "Mindset shifts",
-                    "Stress hygiene",
+                    "Operational stress",
+                    "PTSD & flashbacks",
+                    "Anxiety & panic",
+                    "Depression",
+                    "Sleep disruption",
+                    "Grief & loss",
+                    "Relationship strain",
+                    "Anger & reactivity",
                   ].map((item) => (
-                    <Pill key={item}>{item}</Pill>
+                    <div key={item} className="px-3 py-2 rounded-xl bg-white border flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: BRAND.primary }} />
+                      {item}
+                    </div>
                   ))}
                 </div>
               </CardContent>
@@ -305,7 +228,7 @@ export default function Site() {
                 <p>Initial intake: $___</p>
                 <p>Individual session (50 min): $___</p>
                 <p>Couples/Family (50–80 min): $___</p>
-                {/* Removed Group/IOP line per request */}
+                <p>Group/IOP: Inquire for program rates</p>
               </CardContent>
             </Card>
             <Card className="rounded-2xl border">
@@ -378,26 +301,28 @@ export default function Site() {
               <div className="flex items-center gap-2"><MapPin className="h-4 w-4" style={{ color: BRAND.primary }} /> Ventura, California (Telehealth statewide)</div>
             </div>
           </div>
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert('Thanks! We will contact you shortly.'); }}>
             <div className="grid grid-cols-2 gap-3">
-              <Input placeholder="First name" />
-              <Input placeholder="Last name" />
+              <Input placeholder="First name" required />
+              <Input placeholder="Last name" required />
             </div>
-            <Input type="email" placeholder="Email" />
+            <Input type="email" placeholder="Email" required />
             <Input type="tel" placeholder="Phone" />
             <Textarea placeholder="How can we help?" className="min-h-[120px]" />
             <div className="text-xs text-slate-500">By submitting, you agree to be contacted about scheduling. Please avoid sharing sensitive details. This form is not for emergencies.</div>
-            <Button type="button" className="w-full rounded-2xl" style={{ backgroundColor: BRAND.primary }}>Send message</Button>
+            <Button type="submit" className="w-full rounded-2xl">Send message</Button>
           </form>
         </div>
       </Section>
 
       {/* Footer */}
-      <footer className="border-t bg-white">
+      <footer className="border-t">
         <div className="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-4 gap-6 text-sm">
           <div className="col-span-2">
             <div className="flex items-center gap-3">
-              <img src="/logo-rp.svg" alt="Rally Point logo" className="h-9 w-9 rounded-full border" style={{ borderColor: BRAND.primary }} />
+              <div className="h-9 w-9 rounded-full flex items-center justify-center border" style={{ borderColor: BRAND.primary }}>
+                <span className="font-semibold" style={{ color: BRAND.primary }}>RP</span>
+              </div>
               <div className="font-semibold">{BRAND.name}</div>
             </div>
             <p className="text-slate-600 mt-3">Mental health care with clear direction. In-person (as available) and telehealth across California.</p>
@@ -406,11 +331,10 @@ export default function Site() {
             <div className="font-semibold mb-2">Explore</div>
             <ul className="space-y-2">
               <li><a className="hover:underline" href="#services">Services</a></li>
-              <li><a className="hover:underline" href="#military">Military</a></li>
-              <li><a className="hover:underline" href="#police">Police</a></li>
-              <li><a className="hover:underline" href="#fire">Fire</a></li>
-              <li><a className="hover:underline" href="#ems">EMS</a></li>
-              <li><a className="hover:underline" href="#life-coaching">Life Coaching</a></li>
+              <li><a className="hover:underline" href="#first-responders">First Responders</a></li>
+              <li><a className="hover:underline" href="#telehealth">Telehealth</a></li>
+              <li><a className="hover:underline" href="#insurance">Insurance</a></li>
+              <li><a className="hover:underline" href="#team">Team</a></li>
             </ul>
           </div>
           <div>
