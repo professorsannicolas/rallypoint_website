@@ -5,6 +5,7 @@
 :root {
   --brand-primary: #164C3A; /* forest green */
   --brand-accent: #C0D9CD;
+  --brand-bg: #FFFBEE; 
 }
 
 html, body {
